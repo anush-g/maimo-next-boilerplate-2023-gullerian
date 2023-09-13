@@ -4,14 +4,14 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 
 const Navbar = () => {
   return (
-    <div className='flex justify-between items-center h-14 bg-slate-800 px-5'>
+    <div className='flex justify-between items-center h-14 bg-rose-100 px-5'>
       <div className=' w-32 h-auto sm:w-36 md:w-[300px]'>
-        <Image src={`/assets/umai.svg`} width={300} height={64} alt={`Logo`} />
+        <Image src={`/assets/barbie.png`} width={80} height={20} alt={`Barbie Logo`} />
       </div>
-      <nav className='hidden sm:block'>
-        <ul className='flex justify-end items-center gap-4'>
-          <li>About</li>
-          <li>Contact</li>
+      <nav className='hidden sm:block '>
+        <ul className='flex justify-end items-center gap-4 '>
+          <li>Home</li>
+          <li>Barbie movies</li>
         </ul>
       </nav>
       <div className='sm:hidden'>
