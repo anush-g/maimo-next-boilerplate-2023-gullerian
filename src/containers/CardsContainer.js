@@ -4,18 +4,20 @@ import { useAppContext } from '@/contexts/AppContext';
 const CardsContainer = () => {
   const { shows, loading } = useAppContext();
   return (
-    <section>
-      <h2>Shows</h2>
+    <section className="my-16">
+      <h2 className="text-4xl">Movies</h2>
       {!loading && (
-        <div className='inner my-0 mx-auto max-w-[1200px] px-4'>
-          <div className='grid grid-cols-12 gap-4 gap-y-6'>
-            {shows.map((actualShow, index) => {
-              return <ShowCard actualShow={actualShow} key={index} />;
-            })}
+        <section class="text-gray-600 body-font">
+          <div class="container px-5 py-12 mx-auto">
+            <div class="flex flex-wrap -m-4 justify-center">
+              {shows.map((actualShow, index) => {
+                return <ShowCard actualShow={actualShow} key={index} />;
+              })}
+            </div>
           </div>
-        </div>
+        </section>
       )}
-      {loading && <p className='w-full flex justify-center'>Loading...</p>}
+      {loading && <p className="w-full flex justify-center">Loading...</p>}
     </section>
   );
 };
