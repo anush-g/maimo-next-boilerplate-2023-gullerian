@@ -23,11 +23,13 @@ body {
   font-family: 'Quicksand';
 }
 
-.hero{
-  background-image: url('/public/assets/bg3.jpg');
-}
-.Navbar{
-  color: #ec4399;
+.hero-container{
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))
+  )
+  rgb(var(--background-start-rgb));
 }
 
 h2{
