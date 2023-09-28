@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import { useAppContext } from '@/contexts/AppContext';
-import { RxHamburgerMenu } from 'react-icons/rx';
+// import Image from 'next/image';
+// import { useAppContext } from '@/contexts/AppContext';
+// import { RxHamburgerMenu } from 'react-icons/rx';
 
 const Navbar = () => {
   return (
