@@ -1,29 +1,55 @@
-import Image from 'next/image';
+import { useAppContext } from "@/contexts/AppContext";
+import React, { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Autoplay,
+  Pagination,
+  Navigation,
+  EffectCoverflow,
+} from "swiper/modules";
+import { Carrousel } from "./Carrousel";
+import ShowCard from "./ShowCard";
+import { HeroCard } from "./HeroCard";
+
 
 const Hero = () => {
-  return (
-  <section 
-    className={'text-white body-font'}
-    style={{
-      backgroundImage: "url('/assets/bg4.jpg')", // Ruta a tu imagen de fondo
-      backgroundSize: 'cover', // Ajustar la imagen al tamaño del contenedor
-      backgroundPosition: 'center', // Centrar la imagen
-      color:'white',
-    }}
-  >
-    <div className={'container mx-auto flex px-5 py-24 md:flex-row flex-col items-center'}>
-      <div className={'lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center'}>
-        <h1 className={'sm:text-6xl mb-4 font-bold text-white'}>Barbie Animated Movies
-        </h1>
-        <p className={'mb-8 leading-relaxed font-bold'}>Explore a collection of timeless animated classics that will transport you to far-off lands, sparkling castles, and heartwarming tales.</p>
-        <div className={'flex justify-center'}>
-          <button className={'inline-flex text-white bg-pink-600 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg'}>Random movie</button>
-          <button className={'ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg'}>Search my Barbie movie</button>
-        </div>
-      </div>
-    </div>
-  </section>
-  );
+  const { shows, loading } = useAppContext();
+  const [showsFiltrados, setShowsFiltrados] = useState([]);
+
+  useEffect(() => {
+    const showsOrdenados = shows.sort(
+      (a, b) => b.rating.average - a.rating.average
+    );
+    const ultimos3Shows = showsOrdenados.slice(0, 5);
+    setShowsFiltrados(
+      shows.sort((a, b) => b.rating.average - a.rating.average).slice(0, 5)
+    );
+  }, [shows]);
+
+return (
+
+    <section>
+      {!loading && (
+        
+        
+        <Swiper
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
+                  {showsFiltrados.map((actualShow, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <HeroCard heroShow={actualShow}  />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+)}
+</section>
+);
 };
 
 export default Hero;

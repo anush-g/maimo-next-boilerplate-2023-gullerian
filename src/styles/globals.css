@@ -18,17 +18,21 @@
 }
 
 body {
-  color: #de1c85;
-  background: white;
+  color: white;
+  background: rgb(28, 28, 30);
   font-family: 'Roboto', sans-serif;
 }
 
 h1{
   font-family: 'Righteous', sans-serif;
+  font-size: 2em;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 2em;
 }
 h2{
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 0.5em;
   font-weight: 900;
   font-family: 'Righteous', sans-serif;
 }
@@ -36,10 +40,67 @@ button{
   font-family: 'Righteous', sans-serif;
   font-weight: bold;
 }
+.hero-container {
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  color: white;
+}
 h3{
   font-size: x-large;
-  text-align: center;
   font-weight: bold;
+  padding:0.5em 2em;
   line-height: 30px;
   font-family: 'Righteous', sans-serif;
+}
+.swiper-button-prev:after, .swiper-button-next:after{
+  color:white;
+}
+.svg-icon.search-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+
+  /* On hover: blue strokes */
+  &:focus,
+  &:hover {
+    .search-path {
+      stroke: #299ecc;
+    }
+  }
+
+  /* On click: thicker black strokes  */
+  &:active {
+    .search-path {
+      stroke: #111516;
+      stroke-width: 2px;
+    }
+  }
 }
