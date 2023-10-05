@@ -8,7 +8,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Carrousel } from "@/components/Carrousel";
+import { Carrousel } from "@/components/Swiper";
 
 const CardsContainer = () => {
   const { shows, loading } = useAppContext();
@@ -57,7 +57,7 @@ const CardsContainer = () => {
 
   return (
     <section>
-      <h1>SHOWS</h1>
+      <h1 className="mt-12">SHOWS</h1>
       {!loading && (
         <div className="px-2 py-4">
           <h3>Highest rated shows that ended this year</h3>
