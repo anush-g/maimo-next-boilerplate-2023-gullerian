@@ -10,7 +10,7 @@ export const HeroCard = ({ heroShow }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="hero-container relative">
+    <div className="mt-16 hero-container relative">
       <Link href={`/show/${id}`}>
         <div
           className="hero-image-container relative group"
@@ -30,7 +30,7 @@ export const HeroCard = ({ heroShow }) => {
               isHovered ? "opacity-0" : "opacity-100"
             }`}
           >
-            <h2 className="text-xl mt-4 ml-2 tracking-widest title-font font-medium text-gray-400 mb-1">
+            <h2 className="mt-16 lg:mt-4 text-xl ml-2 tracking-widest title-font font-medium text-gray-400 mb-1">
               {heroShow.genres.slice(0, 3).join(" | ")}
             </h2>
             <h1 className="capitalize  text-left mt-4">
@@ -46,7 +46,7 @@ export const HeroCard = ({ heroShow }) => {
             </h1>
           </div>
           <div
-            className={`absolute w-full flex flex-col justify-center h-[30%] p-6 top-0 text-white transition-opacity ${
+            className={`absolute w-full mt-32 lg:mt-0 flex flex-col justify-center h-[30%] p-6 top-0 text-white transition-opacity ${
               isHovered ? "opacity-100" : "opacity-0"
             }`}
           >

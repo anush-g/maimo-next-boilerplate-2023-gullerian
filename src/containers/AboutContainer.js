@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const AboutContainer = () => {
   return (
-    <section className="p-8 mx-auto w-60%">
+    <section className="p-8 mt-20 mx-auto w-60%">
       <div className="container">
         <h2 className="text-3xl font-bold mb-4 text-center">About Us</h2>
         <p className="leading-loose text-center">

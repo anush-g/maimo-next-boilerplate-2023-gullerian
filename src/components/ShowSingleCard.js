@@ -24,14 +24,14 @@ const ShowSingleCard = ({ show }) => {
   };
 
   return (
-    <div className="flex p-6 mt-16 m-12 w-9/12 relative mx-auto my-auto">
+    <div className="md:flex-row md:space-x-6 lg:w-3/4 flex flex-col p-6 mt-32 m-12 w-9/12 relative mx-auto my-auto">
       {/* Parte izquierda (Imagen) */}
-      <div className="flex-shrink-0 pr-4">
-        <Image src={image?.original} width={350} height={550} alt={name} />
+      <div className="flex-shrink-0 mb-4 pr-4 md:w-1/2 lg:w-1/3">
+        <Image src={image?.original} width={350} height={500} alt={name} />
       </div>
 
       {/* Parte derecha (Texto) */}
-      <div className="flex-grow max-w-3/4 mx-4">
+      <div className="flex-grow md:w-1/2 lg:w-2/3">
         {/* Botón para volver atrás */}
         <button
           onClick={handleGoBack}

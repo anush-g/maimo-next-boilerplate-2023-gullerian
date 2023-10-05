@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="top-0 left-0 right-0 z-50 flex justify-between items-center p-4 bg-gray-800 text-white">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 bg-gray-800 text-white">
       {/* Logo */}
       <NextLink href="/" passHref onClick={closeMenu}>
         <Image
@@ -31,7 +31,7 @@ const Navbar = () => {
       </NextLink>
 
       {/* Menú hamburguesa para dispositivos móviles */}
-      <div className="lg:hidden">
+      <div className="lg:hidden absolute top-4 right-4">
         <button onClick={toggleMenu}>
           <svg
             className="w-6 h-6"
@@ -56,22 +56,28 @@ const Navbar = () => {
           menuOpen ? "flex-col" : "hidden"
         }`}
       >
-        <NextLink
-          href="/"
-          passHref
-          className="lg:inline-block p-2 hover:bg-gray-600"
-          onClick={handleLinkClick}
-        >
-          Home
-        </NextLink>
-        <NextLink
-          href="/about"
-          passHref
-          className="lg:inline-block p-2 hover:bg-gray-600"
-          onClick={handleLinkClick}
-        >
-          About
-        </NextLink>
+        <ul className="mt-8 lg:mt-0 lg:flex lg:flex-row lg:items-center lg:justify-center lg:space-x-4">
+          <li>
+            <NextLink
+              href="/"
+              passHref
+              className="lg:inline-block p-2 hover:bg-gray-600"
+              onClick={handleLinkClick}
+            >
+              Home
+            </NextLink>
+          </li>
+          <li>
+            <NextLink
+              href="/about"
+              passHref
+              className="lg:inline-block p-2 hover:bg-gray-600"
+              onClick={handleLinkClick}
+            >
+              About
+            </NextLink>
+          </li>
+        </ul>
       </div>
     </nav>
   );
