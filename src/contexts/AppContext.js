@@ -14,6 +14,7 @@ export const AppContextProvider = ({ children }) => {
   const [show, setShow] = useState({});
   const [loading, setLoading] = useState(true);
   const [showLoading, setShowLoading] = useState(true);
+  const [cast, setCast] = useState([]);
 
   const getShows = useCallback(async () => {
     setLoading(true);
@@ -44,6 +45,29 @@ export const AppContextProvider = ({ children }) => {
     }
   }, []);
 
+  const getCast = useCallback(async (id) => {
+    try {
+      const castReq = await axios.get(
+        `https://api.tvmaze.com/shows/${id}/cast`
+      );
+      setCast(castReq.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  const [crew, setCrew] = useState([]);
+
+  const getCrew = useCallback(async (id) => {
+    try {
+      const crewReq = await axios.get(
+        `https://api.tvmaze.com/shows/${id}/crew`
+      );
+      setCrew(crewReq.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   return (
     <AppContext.Provider
@@ -53,13 +77,16 @@ export const AppContextProvider = ({ children }) => {
         getShow,
         show,
         showLoading,
+        cast,
+        getCast, // Agregamos la función getCast al contexto
+        crew, // Nuevo estado para el equipo de producción
+        getCrew,
       }}
     >
       {children}
     </AppContext.Provider>
   );
 };
-
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (!context) {
