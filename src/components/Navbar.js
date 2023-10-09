@@ -5,6 +5,7 @@ import Image from "next/image";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState("home");
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -14,14 +15,15 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
-  const handleLinkClick = () => {
-    closeMenu(); // Cierra el menú al hacer clic en un enlace
+  const handleLinkClick = (page) => {
+    setCurrentPage(page);
+    closeMenu();
   };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 bg-gray-800 text-white">
       {/* Logo */}
-      <NextLink href="/" passHref onClick={closeMenu}>
+      <NextLink href="/" passHref onClick={() => handleLinkClick("home")}>
         <Image
           src="/assets/logo-anushix.png"
           width={120}
@@ -61,8 +63,10 @@ const Navbar = () => {
             <NextLink
               href="/"
               passHref
-              className="lg:inline-block p-2 hover:bg-gray-600"
-              onClick={handleLinkClick}
+              className={`lg:inline-block p-2 hover:bg-gray-600 ${
+                currentPage === "home" ? " font-bold" : ""
+              }`}
+              onClick={() => handleLinkClick("home")}
             >
               Home
             </NextLink>
@@ -71,8 +75,10 @@ const Navbar = () => {
             <NextLink
               href="/about"
               passHref
-              className="lg:inline-block p-2 hover:bg-gray-600"
-              onClick={handleLinkClick}
+              className={`lg:inline-block p-2 hover:bg-gray-600 ${
+                currentPage === "about" ? " font-bold" : ""
+              }`}
+              onClick={() => handleLinkClick("about")}
             >
               About
             </NextLink>
